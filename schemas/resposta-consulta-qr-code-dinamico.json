@@ -43,7 +43,7 @@
           "type": "object",
           "properties": {
             "nome": {"type": "string"},
-            "tipo": {"type": "string", "enum": ["texto", "uri", "numero"]},
+            "tipo": {"type": "string", "enum": ["texto", "uri", "numero", "data", "hora"]},
             "valor": {"type": "string"},
             "exibir": {"type": "boolean"}
           },
