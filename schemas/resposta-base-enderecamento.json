@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "tipo_pessoa": { 
+        "type":"string", 
+        "enum": ["fisica", "juridica"] 
+      },
+      "nome": {
+        "type":"string"
+      },
+      "documento": {
+        "type":"string"
+      },
+      "moeda": {
+        "type":"string", 
+        "enum": ["brl"] 
+      },
+      "valor": {
+        "type":"string" 
+      },
+      "conta_spi": {
+        "type":"object",
+        "properties": {
+          "banco": {
+            "type":"string"
+          },
+          "agencia": {
+            "type":"string"
+          },
+          "conta": {
+            "type":"string"
+          }
+        },
+        "required": ["banco", "agencia", "conta"]
+      },
+      "chave_enderecamento": {
+        "type":"string"
+      },
+      "campos": {
+          "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "nome": {"type": "string"},
+            "tipo": {"type": "string", "enum": ["texto", "uri", "numero"]},
+            "valor": {"type": "string"},
+            "exibir": {"type": "boolean"}
+          },
+          "required": ["nome", "tipo"]
+        }
+      }
+    },
+    "required": ["tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
+}
