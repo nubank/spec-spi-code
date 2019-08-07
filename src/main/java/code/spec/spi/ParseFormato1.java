@@ -6,10 +6,10 @@ public class ParseFormato1 {
 		
 		String strippedUri = uri.replace("spi://spi#", "");
 
-		String[] params = strippedUri.split("/");
+		String[] paramametros = strippedUri.split("/");
 
-		System.out.println("chave de enderecamento: " + params[0]);
-		System.out.println("moeda: " + params[1]);
-		System.out.println("valor: " + params[2]);
+		System.out.println("chave de enderecamento: " + paramametros[0]);
+		System.out.println("moeda: " + paramametros[1]);
+		System.out.println("valor: " + paramametros[2]);
 	}
 }
