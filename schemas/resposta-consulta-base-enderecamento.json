@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "nome": {
+        "type":"string"
+      },
+      "documento": {
+        "type":"string"
+      },
+      "tipo_pessoa": { 
+        "type":"string", 
+        "enum": ["fisica", "juridica"] 
+      },
+      "conta_spi": {
+        "type":"object",
+        "properties": {
+          "banco": {
+            "type":"string"
+          },
+          "agencia": {
+            "type":"string"
+          },
+          "conta": {
+            "type":"string"
+          }
+        },
+        "required": ["banco", "agencia", "conta"]
+      },
+      "outros_metodos": {
+        "type":"object"
+      },
+    },
+    "required": [
+        "nome", 
+        "documento", 
+        "tipo_pessoa", 
+        "conta_spi"
+    ]
+}
