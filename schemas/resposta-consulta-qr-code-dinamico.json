@@ -54,5 +54,5 @@
         }
       }
     },
-    "required": ["tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
+    "required": ["id_da_transação", "tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
 }
