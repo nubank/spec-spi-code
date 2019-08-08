@@ -16,7 +16,7 @@
 
 package code.spec.spi;
 
-public class ParseFormato1 {
+public class ParseFormatoPreferivel {
 	
 	public static void main(String[] args) {
 		String uri = "spi://spi#+5511912345678/brl/10.00";
