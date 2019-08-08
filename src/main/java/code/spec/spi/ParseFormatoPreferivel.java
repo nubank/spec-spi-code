@@ -19,14 +19,15 @@ package code.spec.spi;
 public class ParseFormatoPreferivel {
 	
 	public static void main(String[] args) {
-		String uri = "spi://spi#+5511912345678/brl/10.00";
-		
-		String strippedUri = uri.replace("spi://spi#", "");
+		String uri = "spi://pagar/+5511912345678/brl/10.00";
+
+		String strippedUri = uri.replace("spi://pagar/", "");
 
 		String[] paramametros = strippedUri.split("/");
 
 		System.out.println("chave de enderecamento: " + paramametros[0]);
 		System.out.println("moeda: " + paramametros[1]);
 		System.out.println("valor: " + paramametros[2]);
+
 	}
 }
