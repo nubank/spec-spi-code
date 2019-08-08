@@ -2,6 +2,9 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
+      "id_da_transacao": {
+        "type":"string" 
+      },
       "tipo_pessoa": { 
         "type":"string", 
         "enum": ["fisica", "juridica"] 
@@ -51,5 +54,5 @@
         }
       }
     },
-    "required": ["tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
+    "required": ["id_da_transacao", "tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
 }
