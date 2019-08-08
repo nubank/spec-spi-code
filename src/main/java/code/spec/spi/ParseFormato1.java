@@ -19,7 +19,7 @@ package code.spec.spi;
 public class ParseFormato1 {
 	
 	public static void main(String[] args) {
-		String uri = "spi://spi#+5511928341823/brl/10.00";
+		String uri = "spi://spi#+5511912345678/brl/10.00";
 		
 		String strippedUri = uri.replace("spi://spi#", "");
 
