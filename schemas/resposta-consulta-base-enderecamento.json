@@ -3,33 +3,41 @@
     "type": "object",
     "properties": {
       "nome": {
-        "type":"string"
+        "type":"string",
+        "description": "Nome do recebedor caso pessoa física ou razão social caso pessoa jurídica."
       },
       "documento": {
-        "type":"string"
+        "type":"string",
+        "description": "Número do documento, podendo ser **CPF** ou **CNPJ** dependendo do _tipo_pessoa_ "
       },
       "tipo_pessoa": { 
         "type":"string", 
-        "enum": ["fisica", "juridica"] 
+        "enum": ["fisica", "juridica"],
+        "description": "Definição do tipo de pessoa."
       },
       "conta_spi": {
         "type":"object",
+        "description": "Conta SPI do usuário recebedor",
         "properties": {
           "banco": {
-            "type":"string"
+            "type":"string",
+            "description": "Código de compensação "
           },
           "agencia": {
-            "type":"string"
+            "type":"string",
+            "description": "Número da agência"
           },
           "conta": {
-            "type":"string"
+            "type":"string",
+            "description": "Número da conta"
           }
         },
         "required": ["banco", "agencia", "conta"]
       },
       "outros_metodos": {
-        "type":"object"
-      },
+        "type":"object",
+        "description": "Atributo que contém objetos com as informações de métodos de pagamentos adicionais (não SPI)*"
+      }
     },
     "required": [
         "nome", 
