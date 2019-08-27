@@ -1,58 +1,83 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "id_da_transacao": {
-        "type":"string" 
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id_da_transacao": {
+      "type":"string",
+      "description": "Identificador único gerado a cada transação. Difere do identificador único do QRCode"
+    },
+    "tipo_pessoa": { 
+      "type":"string", 
+      "description":"Definição do tipo de pessoa",
+      "enum": ["fisica", "juridica"] 
+    },
+    "nome": {
+      "type":"string",
+      "description": "Nome da pessoa ou razão social da instituição à quem pertence a chave de endereçamento"
+    },
+    "documento": {
+      "type":"string",
+      "description": "Número do documento, podendo ser **CPF** ou **CNPJ** dependendo do _tipo_pessoa_"
+    },
+    "moeda": {
+      "type":"string", 
+      "description": "Moeda utilizada na transação, sempre deverá vir acompanhada de um valor",
+      "enum": ["brl"] 
+    },
+    "valor": {
+      "type":"string",
+      "description": "Valor correspondente à transação"
+    },
+    "conta_spi": {
+      "type":"object",
+      "description": "Objeto que representa a conta SPI do usuário",
+      "properties": {
+        "banco": {
+          "type":"string",
+          "description": "Código de compensação, identificando o banco do usuário"
+        },
+        "agencia": {
+          "type":"string",
+          "description": "Número da agência"
+        },
+        "conta": {
+          "type":"string",
+          "description": "Número da conta"
+        }
       },
-      "tipo_pessoa": { 
-        "type":"string", 
-        "enum": ["fisica", "juridica"] 
-      },
-      "nome": {
-        "type":"string"
-      },
-      "documento": {
-        "type":"string"
-      },
-      "moeda": {
-        "type":"string", 
-        "enum": ["brl"] 
-      },
-      "valor": {
-        "type":"string" 
-      },
-      "conta_spi": {
-        "type":"object",
+      "required": ["banco", "agencia", "conta"]
+    },
+    "chave_enderecamento": {
+      "type":"string",
+      "description":"Chave de endereçamento à qual correspondem as informações da resposta"
+    },
+    "campos": {
+      "type": "array",
+      "description": "Chave que contém objetos de campos adicionais (e.g. URI de um contrato).",
+      "items": {
+        "type": "object",
         "properties": {
-          "banco": {
-            "type":"string"
+          "nome": {
+            "type": "string",
+            "description": "Nome do campo adicional que está sendo enviado"
           },
-          "agencia": {
-            "type":"string"
+          "tipo": {
+            "type": "string", 
+            "description": "Tipo do campo adicional que está sendo enviado",
+            "enum": ["texto", "uri", "numero", "data", "hora"]
           },
-          "conta": {
-            "type":"string"
+          "valor": {
+            "type": "string",
+            "description": "Valor referente ao campo adicional. Na ausência desse atributo, o usuário deve inserir tal informação."
+          },
+          "exibir": {
+            "type": "boolean",
+            "description": "Chave que define se o valor deve ser mostrado ao usuário no momento de confirmação dos dados. Na ausência desse atributo, deve-se apresentar o conteúdo do campo para o usuário. "
           }
         },
-        "required": ["banco", "agencia", "conta"]
-      },
-      "chave_enderecamento": {
-        "type":"string"
-      },
-      "campos": {
-          "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "nome": {"type": "string"},
-            "tipo": {"type": "string", "enum": ["texto", "uri", "numero", "data", "hora"]},
-            "valor": {"type": "string"},
-            "exibir": {"type": "boolean"}
-          },
-          "required": ["nome", "tipo"]
-        }
+        "required": ["nome", "tipo"]
       }
-    },
-    "required": ["id_da_transacao", "tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
+    }
+  },
+  "required": ["id_da_transacao", "tipo_pessoa", "nome", "documento", "conta_spi", "moeda", "valor", "campos"]
 }
