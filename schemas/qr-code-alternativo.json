@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "protocolo": {
+      "type":"string",
+      "description": "O protocolo indicando que esta _URI_ representa um recurso pertencente ao **s**istema de **p**agamentos **i**nstantâneos ",
+      "enum": ["spi"]
+    },
+    "chave_de_enderecamento": { 
+      "type":"string", 
+      "description": "Chave localizada na base de endereçamento utilizada para mapear as informações necessárias para efetuar a transação "
+    },
+    "moeda": { 
+      "type": "string",
+      "description": "Moeda utilizada na transação, sempre deverá vir acompanhada de um valor"
+    },
+    "valor": { 
+      "type": "string",
+      "description": "Valor correspondente à transação"
+    }
+  },
+  "required": [
+    "protocolo", 
+    "chave_de_enderecamento" 
+    ]
+}
